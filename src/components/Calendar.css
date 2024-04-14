@@ -1,0 +1,46 @@
+.calendar{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+section{
+    background-color: rgba(240, 255, 255, 0);
+}
+
+.section{
+    width: 48.65rem;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.tile{
+    margin: 0;
+    padding: 2rem;
+    border: 2px solid black;
+    background-color: aqua;
+    width: 2.7rem;
+}
+
+.tile > h3{
+    margin: 0;
+}
+
+.booked{
+    background-color: rgb(235, 20, 20);
+}
+
+.calendar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: none;
+    width: 48.65rem;
+}
+
+h1{
+    margin: 0.5rem;
+}
