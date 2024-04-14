@@ -1,0 +1,56 @@
+.reservation-form {
+    max-width: 900px;
+    margin: auto auto 2rem auto;
+    justify-content: center; 
+    display: flex; 
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button {
+    background-color: #18ecd3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-color: #14ccb7;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #14ccb7;
+  }
+  
+
+  h2{
+    font-size: 3rem;
+  }
+
+  #consent{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }

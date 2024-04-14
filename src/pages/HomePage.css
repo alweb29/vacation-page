@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #92f0e5;
+}
+
+
+.hero {
+  background-image: url(../assets/sunset1.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.btn {
+  background-color: #ff8c00;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ffaf4d;
+}
+
+h1 {
+  color: #18ecd3;
+  font-size: 3rem;
+  margin: 1rem 1rem 1rem 0.4rem;
+}
+
+section {
+  background-color: antiquewhite;
+  margin: 0;
+  text-align: center;
+}
+
+.mid{
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,19 @@
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+  margin-right: 0;
+}
+
+.contact-info{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 50%;
+}
+
+a{
+    margin: 1rem;
+}
