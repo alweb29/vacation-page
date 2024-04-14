@@ -3,7 +3,10 @@ import "../../src/pages/Contact.css";
 function Contact() {
     const phoneNo = import.meta.env.VITE_PHONE;
     const email = import.meta.env.VITE_EMAIL;
+    const APIKEY = import.meta.env.VITE_APIKEY;
 
+    const src = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIQlWLuZq_kYRRusRINEQ4Kw&key="+ APIKEY;
+    
   return (
     <div className="ContactMain">
       <div>
@@ -12,7 +15,7 @@ function Contact() {
           height="450"
           style={{ edge: 1 }}
           load="lazy"
-          src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIQlWLuZq_kYRRusRINEQ4Kw&key=AIzaSyA3C3WC_QO0qtDqWu-GvcFg4PMlKDcH5P8"
+          src={src}
         ></iframe>
       </div>
       <div className="ContactContent">
