@@ -6,10 +6,10 @@ function Contact() {
     const src = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIQlWLuZq_kYRRusRINEQ4Kw&key="+ APIKEY;
     
   return (
-    <div className="ContactMain">
+    <div className="flex flex-col md:flex-row md:justify-around md:max-w-[50rem] md:gap-6 md:my-3 md:mx-auto">
       <div>
         <iframe
-        className="w-[90%] mx-auto md:w-96 md:h-96 md:m-0"
+        className="w-[90%] mt-2 mx-auto md:w-[30rem] md:h-[30rem] md:m-0"
           width="600"
           height="450"
           style={{ edge: 1 }}
@@ -17,7 +17,7 @@ function Contact() {
           src={src}
         ></iframe>
       </div>
-      <div className="ContactContent">
+      <div className="flex-col text-center my-2 md:-around md:my-auto">
         <h1>Kontakt</h1>
         <h3>Adres: ul. Plażowa 5, Rowy</h3>
         <h3>Tel.: {phoneNo} </h3>

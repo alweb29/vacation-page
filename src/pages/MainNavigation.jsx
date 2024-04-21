@@ -31,8 +31,8 @@ function MainNavigation() {
   }
 
   return (
-    <header>
-      <div className="flex flex-row justify-around content-center max-h-20  bg-cyan-200 absolute top-0 w-[100%]">
+    <header className="fixed top-0 left-0 w-full z-50">
+      <div className="flex flex-row justify-around content-center max-h-20  bg-cyan-200">
         <div className="flex mr-auto max-w-[70%]" onClick={() => navigateHandler("")}>
           <img className="p-1" src="/src/assets/logo.png" alt="Logo" />
           <h1 className="hidden md:flex p-1 text-xl max-w-64">Apartamenty Turkusowe Rowy</h1>
