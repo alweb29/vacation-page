@@ -5,12 +5,12 @@ import Footer from "./Footer";
 function Root() {
   return (
     <>
-      <MainNavigation />
       <div>
-        <div className="mt-20">
-          <Outlet/>
+        <MainNavigation />
+        <div className="mt-20 flex flex-col">
+          <Outlet className="flex-grow mt-20" />
+          <Footer className="mt-auto"/>
         </div>
-        <Footer/>
       </div>
     </>
   );

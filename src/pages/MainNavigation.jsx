@@ -20,6 +20,7 @@ function MainNavigation() {
   function navigateHandler(path) {
     const url = "/"+path;
     navigate(url);
+    setSideNavOpen(false);
   }
 
   let navLinksClassNames= "my-auto p-2 border border-cyan-900"
@@ -64,7 +65,7 @@ function MainNavigation() {
             </ul>
           </nav>
         {sideNavOpen && (
-          <div className="absolute top-0 right-0 w-[80%] z-10 bg-cyan-600 h-svhright-0 md:hidden">
+          <div className="absolute top-0 right-0 w-[80%] z-10 bg-cyan-600 overflow-hidden h-svhright-0 md:hidden">
             <div className="flex flex-col h-svh items-start mt-20">
               <SideBarButton onClick={() => navigateHandler("")} text="Oferta"/>
               <SideBarButton onClick={() => navigateHandler("neighbourhood")} text="Okolica"/>
