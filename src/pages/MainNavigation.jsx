@@ -20,6 +20,7 @@ function MainNavigation() {
   function navigateHandler(path) {
     const url = "/"+path;
     navigate(url);
+    setSideNavOpen(false);
   }
 
   let navLinksClassNames= "my-auto p-2 border border-cyan-900"
@@ -30,8 +31,8 @@ function MainNavigation() {
   }
 
   return (
-    <header>
-      <div className="flex flex-row justify-around content-center max-h-20  bg-cyan-200 absolute top-0 w-[100%]">
+    <header className="fixed top-0 left-0 w-full z-50">
+      <div className="flex flex-row justify-around content-center max-h-20  bg-cyan-200">
         <div className="flex mr-auto max-w-[70%]" onClick={() => navigateHandler("")}>
           <img className="p-1" src="/src/assets/logo.png" alt="Logo" />
           <h1 className="hidden md:flex p-1 text-xl max-w-64">Apartamenty Turkusowe Rowy</h1>
@@ -64,7 +65,7 @@ function MainNavigation() {
             </ul>
           </nav>
         {sideNavOpen && (
-          <div className="absolute top-0 right-0 w-[80%] z-10 bg-cyan-600 h-svhright-0 md:hidden">
+          <div className="absolute top-0 right-0 w-[80%] z-10 bg-cyan-600 overflow-hidden h-svhright-0 md:hidden">
             <div className="flex flex-col h-svh items-start mt-20">
               <SideBarButton onClick={() => navigateHandler("")} text="Oferta"/>
               <SideBarButton onClick={() => navigateHandler("neighbourhood")} text="Okolica"/>

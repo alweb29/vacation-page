@@ -1,107 +1,42 @@
+import CalendarTile from "./CalendarTile";
 
 function Calendar() {
+  let buttons = "p-2 bg-cyan-200 m-2 rounded-md w-20";
+
+  class Day {
+    constructor(number, isReserved) {
+      this.number = number;
+      this.isReserved = isReserved;
+    }
+  }
+
+  var days = [new Day(1, false), new Day(2, false), new Day(3, false), new Day(4, false), new Day(5, false), new Day(6, false), new Day(7,false),
+    new Day(8, false), new Day(9, false), new Day(10, false), new Day(11, false), new Day(12, false), new Day(13, false), new Day(14,false),
+    new Day(15, true), new Day(16, true), new Day(17, true), new Day(18, true), new Day(19, true), new Day(20, true), new Day(21,false),
+    new Day(22, false), new Day(23, true), new Day(24, true), new Day(25, true), new Day(26, true), new Day(27, true), new Day(28,true),
+    new Day(29, false), new Day(30, false), new Day(31, false)
+  ];
+
+  let tileFree = "bg-blue-400 py-2 md:py-4 text-center w-12 h-12 md:h-16 md:w-16 align-middle";
+  let tileBooked ="bg-red-400 py-2 md:py-4 text-center w-12 h-12 md:h-16 md:w-16 align-middle";
+  
+
   return (
-    <div className="calendar">
-      <h1>Kalendarz rezerwacji</h1>
-      <div className="calendar-header">
-        <button>lewo</button>
-        <h1>Maj</h1>
-        <button>prawo</button>
+    <div className="max-w-[48rem] mx-auto flex flex-col py-10">
+      <h1 className="text-center text-4xl">Kalendarz rezerwacji</h1>
+      <div className="flex flex-row justify-center align-bottom gap-4 my-3">
+        <button className={buttons}>lewo</button>
+        <h1 className="text-3xl p-2">Maj</h1>
+        <button className={buttons}>prawo</button>
       </div>
-      <section className="section">
-        <div className="tile booked">
-          <h3>1</h3>
-        </div>
-        <div className="tile">
-          <h3>2</h3>
-        </div>
-        <div className="tile">
-          <h3>3</h3>
-        </div>
-        <div className="tile">
-          <h3>4</h3>
-        </div>
-        <div className="tile">
-          <h3>5</h3>
-        </div>
-        <div className="tile">
-          <h3>6</h3>
-        </div>
-        <div className="tile">
-          <h3>7</h3>
-        </div>
-        <div className="tile">
-          <h3>8</h3>
-        </div>
-        <div className="tile">
-          <h3>9</h3>
-        </div>
-        <div className="tile">
-          <h3>10</h3>
-        </div>
-        <div className="tile">
-          <h3>11</h3>
-        </div>
-        <div className="tile">
-          <h3>12</h3>
-        </div>
-        <div className="tile">
-          <h3>13</h3>
-        </div>
-        <div className="tile">
-          <h3>14</h3>
-        </div>
-        <div className="tile">
-          <h3>15</h3>
-        </div>
-        <div className="tile">
-          <h3>16</h3>
-        </div>
-        <div className="tile">
-          <h3>17</h3>
-        </div>
-        <div className="tile">
-          <h3>18</h3>
-        </div>
-        <div className="tile">
-          <h3>19</h3>
-        </div>
-        <div className="tile">
-          <h3>20</h3>
-        </div>
-        <div className="tile">
-          <h3>21</h3>
-        </div>
-        <div className="tile">
-          <h3>22</h3>
-        </div>
-        <div className="tile">
-          <h3>23</h3>
-        </div>
-        <div className="tile">
-          <h3>24</h3>
-        </div>
-        <div className="tile">
-          <h3>25</h3>
-        </div>
-        <div className="tile">
-          <h3>26</h3>
-        </div>
-        <div className="tile">
-          <h3>27</h3>
-        </div>
-        <div className="tile">
-          <h3>28</h3>
-        </div>
-        <div className="tile">
-          <h3>29</h3>
-        </div>
-        <div className="tile">
-          <h3>30</h3>
-        </div>
-        <div className="tile">
-          <h3>31</h3>
-        </div>
+      <section className="min-w-[20rem] grid grid-cols-7 grid-row-5 bg-gray-100 rounded-xl drop-shadow-xl mx-auto overflow-hidden">
+      {days.map((day, index) => (
+          <CalendarTile
+            key={index}
+            text={day.number}
+            className={day.isReserved ? tileBooked : tileFree}
+          />
+        ))}
       </section>
     </div>
   );
