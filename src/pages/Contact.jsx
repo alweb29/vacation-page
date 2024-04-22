@@ -9,7 +9,7 @@ function Contact() {
     <div className="flex flex-col md:flex-row md:justify-around md:max-w-[50rem] md:gap-6 md:my-3 md:mx-auto">
       <div>
         <iframe
-        className="w-[90%] mt-2 mx-auto md:w-[30rem] md:h-[30rem] md:m-0"
+        className="w-[90%] h-[20rem] drop-shadow-xl py-2 mt-2 mx-auto md:w-[30rem] md:h-[30rem] md:m-0"
           width="600"
           height="450"
           style={{ edge: 1 }}
