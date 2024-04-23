@@ -5,6 +5,7 @@ import Root from "./pages/Root";
 import Neighbourhood from "./pages/Neighbourhood";
 import Price from "./pages/Price";
 import Contact from "./pages/Contact";
+import AdminPage from "./pages/AdminPage";
 
 const router = createBrowserRouter([
   {path: '/', 
@@ -15,13 +16,11 @@ const router = createBrowserRouter([
     {path: 'prices', element: <Price/>},
     {path: 'reservation', element: <ReservationPage/>},
     {path: 'contact', element: <Contact/>},
+    {path: 'admin', element: <AdminPage/>},
   ]}
 ]);
 
 function App() {
-  //http://www.apartamentymagellan.pl/kontakt
-  //http://www.zefir-rowy.com/apartamenty-w-rowach.html
-
   return <RouterProvider router={router}/>;
 }
 
