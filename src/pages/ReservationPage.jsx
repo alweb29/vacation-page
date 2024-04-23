@@ -1,11 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Calendar from "../components/Calendar";
 
 function ReservationPage() {
   const [isConsentChecked, setIsConsentChecked] = useState(false);
+  const [reservationData, setReservationData] = useState(null);
+  const [roomType, setRoomType] = useState(2);
+  const [month, setMonth] = useState(2);
+  const apiEndpoint = import.meta.env.VITE_API_EDNPOINT;
+
+  useEffect(() => {
+    // Fetch reservation data from backend API
+    fetchReservationData()
+      .then((data) => setReservationData(data))
+      .catch((error) =>
+        console.error("Error fetching reservation data:", error)
+      );
+  }, [month, roomType]);
+
+  async function fetchReservationData() {
+    try {
+      const response = await fetch(apiEndpoint + `/${month}/${roomType}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      throw new Error("Error fetching data:", error);
+    }
+  }
 
   function handleSendReservationForm(event) {
-    event.preventDefault(); // Prevent form submission if validation fails
+    event.preventDefault();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
 
@@ -17,38 +44,73 @@ function ReservationPage() {
       );
     } else {
       console.log("Form sent");
-      // Add your form submission logic here
+      // SEND form to backend to send email
     }
   }
 
   function handleConsentCheckboxChange(event) {
-    setIsConsentChecked(event.target.checked); // Update consent state
+    setIsConsentChecked(event.target.checked);
   }
 
-  var divClassName ="flex flex-col py-2";
-  let labelClassName ="p-2";
-  let inputClassName="bg-gray-200 border-2 p-1 border-black rounded-md focus-visible:border-none";
+  var divClassName = "flex flex-col py-2";
+  let labelClassName = "p-2";
+  let inputClassName =
+    "bg-gray-200 border-2 p-1 border-black rounded-md focus-visible:border-none";
+
   return (
     <>
-      <Calendar/>
+      {reservationData && (
+        <Calendar
+          data={reservationData}
+          changeRoomType={setRoomType}
+          changeMonth={setMonth}
+          currentMonth={month}
+        />
+      )}
       <div className="reservation-form">
         <div className="flex flex-col mx-auto mb-5 justify-center">
           <h2 className="text-center mb-4">Formularz Rezerwacyjny</h2>
           <form className="bg-gray-100 mx-4 border-gray-200 rounded-xl drop-shadow-xl max-w-[48rem] md:mx-auto">
             <div className={divClassName}>
-              <label className={labelClassName} htmlFor="name">Imię i nazwisko:</label>
-              <input className={inputClassName} type="text" id="name" name="name" required />
+              <label className={labelClassName} htmlFor="name">
+                Imię i nazwisko:
+              </label>
+              <input
+                className={inputClassName}
+                type="text"
+                id="name"
+                name="name"
+                required
+              />
             </div>
             <div className={divClassName}>
-              <label className={labelClassName} htmlFor="email">Email:</label>
-              <input className={inputClassName} type="email" id="email" name="email" required />
+              <label className={labelClassName} htmlFor="email">
+                Email:
+              </label>
+              <input
+                className={inputClassName}
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
             </div>
             <div className={divClassName}>
-              <label className={labelClassName} htmlFor="phone">Numer telefonu:</label>
-              <input className={inputClassName} type="tel" id="phone" name="phone" required />
+              <label className={labelClassName} htmlFor="phone">
+                Numer telefonu:
+              </label>
+              <input
+                className={inputClassName}
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+              />
             </div>
             <div className={divClassName}>
-              <label className={labelClassName} htmlFor="roomType">Apartament:</label>
+              <label className={labelClassName} htmlFor="roomType">
+                Apartament:
+              </label>
               <select className={inputClassName} id="roomType" name="roomType">
                 <option value="2_person">Studio 2 osobowe</option>
                 <option value="3_person">Studio 3 osobowe</option>
@@ -56,8 +118,15 @@ function ReservationPage() {
               </select>
             </div>
             <div className={divClassName}>
-              <label className={labelClassName} htmlFor="message">Wiadomość:</label>
-              <textarea className={inputClassName} id="message" name="message" rows="4"></textarea>
+              <label className={labelClassName} htmlFor="message">
+                Wiadomość:
+              </label>
+              <textarea
+                className={inputClassName}
+                id="message"
+                name="message"
+                rows="4"
+              ></textarea>
             </div>
             <div className={divClassName}>
               <label className={labelClassName} htmlFor="consent">
@@ -78,7 +147,11 @@ function ReservationPage() {
                 </label>
               </div>
             </div>
-            <button className="p-2 bg-cyan-200 m-2 rounded-md w-20" type="submit" onClick={handleSendReservationForm}>
+            <button
+              className="p-2 bg-cyan-200 m-2 rounded-md w-20"
+              type="submit"
+              onClick={handleSendReservationForm}
+            >
               Wyślij
             </button>
           </form>
