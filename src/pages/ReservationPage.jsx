@@ -3,33 +3,16 @@ import Calendar from "../components/Calendar";
 
 function ReservationPage() {
   const [isConsentChecked, setIsConsentChecked] = useState(false);
-  const [reservationData, setReservationData] = useState(null);
-  const [roomType, setRoomType] = useState(2);
-  const [month, setMonth] = useState(2);
-  const apiEndpoint = import.meta.env.VITE_API_EDNPOINT;
-
-  useEffect(() => {
-    // Fetch reservation data from backend API
-    fetchReservationData()
-      .then((data) => setReservationData(data))
-      .catch((error) =>
-        console.error("Error fetching reservation data:", error)
-      );
-  }, [month, roomType]);
-
-  async function fetchReservationData() {
-    try {
-      const response = await fetch(apiEndpoint + `/${month}/${roomType}`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await response.json();
-      console.log(data);
-      return data;
-    } catch (error) {
-      throw new Error("Error fetching data:", error);
-    }
-  }
+  const [reservationData, setReservationData] = useState({
+    roomType: "TWO_PERSON_ROOM",
+    monthNum: 2,
+    reservedDaysFull: [
+      {
+        dayNum: "",
+        reserved: false,
+      },
+    ],
+  });
 
   function handleSendReservationForm(event) {
     event.preventDefault();
@@ -59,14 +42,10 @@ function ReservationPage() {
 
   return (
     <>
-      {reservationData && (
-        <Calendar
-          data={reservationData}
-          changeRoomType={setRoomType}
-          changeMonth={setMonth}
-          currentMonth={month}
-        />
-      )}
+      <Calendar
+        data={reservationData}
+        setReservationData={setReservationData}
+      />
       <div className="reservation-form">
         <div className="flex flex-col mx-auto mb-5 justify-center">
           <h2 className="text-center mb-4">Formularz Rezerwacyjny</h2>
