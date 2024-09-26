@@ -27,7 +27,7 @@ function Calendar({ data, setReservationData }) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       throw new Error("Error fetching data:", error);
@@ -39,20 +39,20 @@ function Calendar({ data, setReservationData }) {
     console.log("Current monthNum:", monthNum);
     if (next) {
       if (monthNum >= 12) {
-        console.log("%c Changing month to January", "color: blue;");
+        // console.log("%c Changing month to January", "color: blue;");
         setMonth(1);
       } else {
         monthNum++;
-        console.log("%c Changing month to:" + monthNum, "color: blue;");
+        // console.log("%c Changing month to:" + monthNum, "color: blue;");
         setMonth(monthNum);
       }
     } else {
       if (monthNum <= 1) {
-        console.log("%c Changing month to December", "color: blue;");
+        // console.log("%c Changing month to December", "color: blue;");
         setMonth(12);
       } else {
         monthNum--;
-        console.log("%c Changing month to:" + monthNum, "color: blue;");
+        // console.log("%c Changing month to:" + monthNum, "color: blue;");
         setMonth(monthNum);
       }
     }
