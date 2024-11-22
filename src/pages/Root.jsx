@@ -4,12 +4,12 @@ import Footer from "./Footer";
 
 function Root() {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <MainNavigation />
-      <div className="mt-20 ">
+      <div className="flex-grow mt-20">
         <Outlet />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

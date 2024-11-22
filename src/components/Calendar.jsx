@@ -99,7 +99,7 @@ function Calendar({ data, setReservationData }) {
     "p-2 bg-cyan-400 m-2 rounded-md w-24 translate-y-1 hover:shadow-none hover:bg-cyan-500 hover:text-cyan-100 duration-150";
 
   return (
-    <div className="max-w-[48rem] mx-auto flex flex-col py-10">
+    <div className="max-w-[48rem] mx-auto flex flex-col py-10 pt-2">
       <h1 className="text-center text-4xl">Kalendarz rezerwacji</h1>
       <h3 className="text-center text-2xl">Proszę wybrać pokój</h3>
       <div className="gap-4 flex flex-row justify-center">

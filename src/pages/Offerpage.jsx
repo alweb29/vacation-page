@@ -7,16 +7,27 @@ export default function OfferPage() {
   // Define photo URLs for each room type
   const photoUrls = {
     2: [
-      "../src/assets/roomphotos/2room.jpg",
-      "../src/assets/roomphotos/2room2.jpg",
-      "../src/assets/roomphotos/2balcony.jpg",
+      "../src/assets/rooms/2/2.jpg",
     ],
-    3: ["../src/assets/roomphotos/3balcony.jpg"],
+    3: [
+      "../src/assets/rooms/3/IMG-20240929-WA0001.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA0002.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA0003.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA0004.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA0005.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA0006.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA0007.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA0009.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA00010.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA00011.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA00012.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA00014.jpg",
+      "../src/assets/rooms/3/IMG-20240929-WA00015.jpg",
+    ],
     4: [
-      "../src/assets/roomphotos/4room.jpg",
-      "../src/assets/roomphotos/4balcony.jpg",
-      "../src/assets/roomphotos/4bathroom.jpg",
-      "../src/assets/roomphotos/4bathroom2.jpg",
+      "../src/assets/rooms/4/IMG-20240929-WA0000.jpg",
+      "../src/assets/rooms/4/IMG-20240929-WA0017.jpg",
+      "../src/assets/rooms/4/IMG-20240929-WA0019.jpg",
     ],
   };
 
@@ -42,7 +53,7 @@ export default function OfferPage() {
   return (
     <div className="max-w-[60rem] mx-auto">
       <h1 className="text-center text-4xl">Oferta</h1>
-      <h3 className="text-center text-2xl">Proszę wybrać apartament</h3>
+      <h3 className="text-center text-2xl">Rodzaj apartamentu</h3>
       <div className="gap-4 flex flex-row justify-center">
         <button
           className={roomType === 2 ? selectedButton : buttons}

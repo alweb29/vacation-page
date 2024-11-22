@@ -6,7 +6,7 @@ function Contact() {
     const src = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJIQlWLuZq_kYRRusRINEQ4Kw&key="+ APIKEY;
     
   return (
-    <div className="flex flex-col md:flex-row md:justify-around md:max-w-[50rem] md:gap-6 md:my-3 md:mx-auto">
+    <div className="flex flex-col md:flex-row md:justify-around md:max-w-[50rem] md:gap-6 md:my-3 md:mx-auto h-max">
       <div>
         <iframe
         className="w-[90%] h-[20rem] drop-shadow-xl py-2 mt-2 mx-auto md:w-[30rem] md:h-[30rem] md:m-0"
